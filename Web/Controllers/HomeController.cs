@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,15 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            ViewBag.Title = "Home Page";
 
-            return View();
+        public HomeController(ITagsCounterTaskService service)
+        {
+
+        }
+        // GET: Home
+        public string Index()
+        {
+            return "322";
         }
     }
 }

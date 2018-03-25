@@ -11,15 +11,7 @@ namespace Web.Tests.Controllers
         [TestMethod]
         public void Index()
         {
-            // Упорядочение
-            HomeController controller = new HomeController();
-
-            // Действие
-            ViewResult result = controller.Index() as ViewResult;
-
-            // Утверждение
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Home Page", result.ViewBag.Title);
+           
         }
     }
 }
