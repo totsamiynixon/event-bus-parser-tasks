@@ -10,9 +10,11 @@ namespace IFL.Messages
     public class TaskCreatedMessage : TinyMessageBase
     {
         public int TaskId { get; }
-        public TaskCreatedMessage(object sender, int taskId) : base(sender)
+        public string Url { get; set; }
+        public TaskCreatedMessage(object sender, int taskId, string url) : base(sender)
         {
             TaskId = taskId;
+            Url = url;
         }
     }
 }

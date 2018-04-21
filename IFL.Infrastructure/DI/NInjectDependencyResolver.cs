@@ -1,4 +1,5 @@
 ﻿
+using BLL.Helpers;
 using BLL.Implementations;
 using BLL.Interfaces;
 using DAL.Data;
@@ -45,12 +46,7 @@ namespace IFL.DI
         {
             kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>();
             kernel.Bind<ITagsCounterTaskService>().To<TagsCounterTaskService>().InRequestScope();
-            kernel.Bind<ITinyMessengerHub>().To<TinyMessengerHub>().InSingletonScope();
-        }
-
-        public static T GetService<T>() where T : class
-        {
-            return DependencyResolver.Current?.GetService<T>() ?? (T)GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(T));
+            kernel.Bind<ITinyMessengerHub>().To<TinyMessengerHub>().InRequestScope().OnActivation(s => new TaskRunnerHelper().InitSubscribtions(s));
         }
 
         public void Dispose()

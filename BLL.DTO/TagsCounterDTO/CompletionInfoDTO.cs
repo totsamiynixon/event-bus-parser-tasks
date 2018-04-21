@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.DTO.Projections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,6 @@ namespace BLL.DTO.TagsCounterDTO
     {
         public TagsCounterTaskStatus Status { get; set; }
 
-        public Dictionary<string, int> Result { get; set; }
+        public List<TagNameCountProjection> Result { get; set; }
     }
 }

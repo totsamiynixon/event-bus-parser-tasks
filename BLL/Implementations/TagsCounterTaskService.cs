@@ -36,18 +36,18 @@ namespace BLL.Implementations
             };
             _taskRepository.Add(task);
             await _db.SaveChangesAsync();
-            _messengerHub.PublishAsync(new TaskCreatedMessage(this, task.Id));
+            _messengerHub.PublishAsync(new TaskCreatedMessage(this, task.Id, task.Url));
             return trackingCode;
         }
 
         public async Task<CompletionInfoDTO> GetCompletionStateAsync(string trackingCode)
         {
             var task = await _taskRepository.FirstOrDefaultAsync(f => f.TrackingCode == trackingCode);
-            if(task == null)
+            if (task == null)
             {
                 return null;
             }
-            return Mapper.Map<TagsCounterTask,CompletionInfoDTO>(task);
+            return Mapper.Map<TagsCounterTask, CompletionInfoDTO>(task);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BLL.DTO.Projections;
 using BLL.DTO.TagsCounterDTO;
 using Newtonsoft.Json;
 using System;
@@ -15,7 +16,7 @@ namespace IFL.Mapping
         public DomainToDTOProfile()
         {
             CreateMap<TagsCounterTask, CompletionInfoDTO>()
-                .ForMember(f => f.Result, m => m.ResolveUsing(s => JsonConvert.DeserializeObject<Dictionary<string, int>>(s.Result)));
+                .ForMember(f => f.Result, m => m.ResolveUsing(s => JsonConvert.DeserializeObject<List<TagNameCountProjection>>(s.Result)));
         }
     }
 }

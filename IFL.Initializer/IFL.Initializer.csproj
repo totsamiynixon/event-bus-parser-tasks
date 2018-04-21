@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{A5962B9B-58F2-48A3-9CDD-097720470F11}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IFL.Infrastructure\IFL.DI.csproj">
       <Project>{4C613DE1-3100-498E-9860-39110895E721}</Project>
       <Name>IFL.DI</Name>

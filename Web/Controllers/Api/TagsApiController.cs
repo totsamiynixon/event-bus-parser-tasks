@@ -1,4 +1,5 @@
-﻿using BLL.Interfaces;
+﻿using BLL.Helpers;
+using BLL.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using TinyMessenger;
 using Web.Models;
 using Web.Models.Api;
 using Web.Models.Domain;
 
 namespace Web.Controllers.Api
 {
-    [Route("api/tags")]
+    [RoutePrefix("api/tags")]
     public class TagsApiController : ApiController
     {
         private readonly ITagsCounterTaskService _tagsCounterService;
@@ -23,6 +25,7 @@ namespace Web.Controllers.Api
             _tagsCounterService = tagsCounterTaskService;
         }
         [HttpPost]
+        [Route("create")]
         public async Task<IHttpActionResult> CreateTask([FromBody]CreateTagsParserTaskModel model)
         {
             if (!ModelState.IsValid)
@@ -34,6 +37,7 @@ namespace Web.Controllers.Api
         }
 
         [HttpGet]
+        [Route("get")]
         public async Task<IHttpActionResult> GetTask([FromUri]GetTagsParserTaskModel model)
         {
             if (!ModelState.IsValid)
