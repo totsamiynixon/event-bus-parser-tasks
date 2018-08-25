@@ -1,8 +1,8 @@
 ﻿
-using BLL.Helpers;
 using BLL.Implementations;
 using BLL.Interfaces;
 using DAL.Data;
+using IFL.EventBus;
 using Ninject;
 using Ninject.Web.Common;
 using System;
@@ -46,7 +46,7 @@ namespace IFL.DI
         {
             kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>();
             kernel.Bind<ITagsCounterTaskService>().To<TagsCounterTaskService>().InRequestScope();
-            kernel.Bind<ITinyMessengerHub>().To<TinyMessengerHub>().InRequestScope().OnActivation(s => new TaskRunnerHelper().InitSubscribtions(s));
+            kernel.Bind<ITinyMessengerHub>().To<TinyMessengerHub>().InRequestScope().OnActivation(s => EventBusInitializer.InitSubscribtions(s));
         }
 
         public void Dispose()

@@ -12,16 +12,16 @@ using TinyMessenger;
 using Web.Models.Domain;
 using Z.EntityFramework.Plus;
 
-namespace BLL.Helpers
+namespace IFL.EventBus
 {
-    public class TaskRunnerHelper
+    public static class EventBusInitializer
     {
-        public void InitSubscribtions(ITinyMessengerHub hub)
+        public static void InitSubscribtions(ITinyMessengerHub hub)
         {
             hub.Subscribe<TaskCreatedMessage>(ProceedTask);
         }
 
-        public async void ProceedTask(TaskCreatedMessage message)
+        private static async void ProceedTask(TaskCreatedMessage message)
         {
             try
             {

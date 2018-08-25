@@ -16,7 +16,7 @@ namespace IFL.Mapping
         public DomainToDTOProfile()
         {
             CreateMap<TagsCounterTask, CompletionInfoDTO>()
-                .ForMember(f => f.Result, m => m.ResolveUsing(s => JsonConvert.DeserializeObject<List<TagNameCountProjection>>(s.Result)));
+                .ForMember(f => f.Result, m => m.ResolveUsing(s => s.Status == TagsCounterTaskStatus.Completed ? JsonConvert.DeserializeObject<List<TagNameCountProjection>>(s.Result) : null));
         }
     }
 }

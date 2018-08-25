@@ -1,4 +1,4 @@
-﻿using BLL.Helpers;
+﻿
 using IFL.DI;
 using IFL.Initializer;
 using IFL.Mapping;
@@ -15,6 +15,10 @@ namespace IFL.Initializer
 {
     public static class IFLInitializer
     {
-
+        public static void Initialize()
+        {
+            NinjectInicializer.Start();
+            AutoMapperConfiguration.Configure();
+        }
     }
 }

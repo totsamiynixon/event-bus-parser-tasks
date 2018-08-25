@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.1.17\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -98,9 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\TagsApiControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Controllers\ValuesControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -109,6 +114,30 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL.DTO\BLL.DTO.csproj">
+      <Project>{CE39B71E-2379-412A-A5A3-9F6C5313A300}</Project>
+      <Name>BLL.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{A5962B9B-58F2-48A3-9CDD-097720470F11}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{DABC0D46-FEDC-4565-BC3F-CEACCE0DF112}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IFL.Infrastructure\IFL.DI.csproj">
+      <Project>{4C613DE1-3100-498E-9860-39110895E721}</Project>
+      <Name>IFL.DI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IFL.Initializer\IFL.Initializer.csproj">
+      <Project>{41E37AC0-3543-4050-B625-A9E79A9988C2}</Project>
+      <Name>IFL.Initializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IFL.Mapping\IFL.Mapping.csproj">
+      <Project>{3C3F53F8-C4C5-49C1-8B70-B07CF8178B15}</Project>
+      <Name>IFL.Mapping</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{C787A814-DC2C-420A-8C14-86F8FC5021F2}</Project>
       <Name>Web</Name>
